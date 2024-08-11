@@ -68,6 +68,50 @@ p {
   flex: 1;
 }
 
+.left-top {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left-top .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-top .top .title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--slate-800-color);
+}
+
+.left-top .top .clear {
+  font-size: 0.8rem;
+  color: var(--slate-400-color);
+  cursor: pointer;
+  border-bottom: 1px solid var(--slate-400-color);
+}
+
+.left-top .bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  font-weight: bold;
+  background-color: var(--lime-color);
+  padding: 10px 20px;
+  width: fit-content;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  cursor: pointer;
+}
+
 .right-bottom {
   background-color: var(--slate-900-color);
   color: var(--light-color);
