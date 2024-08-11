@@ -1,0 +1,47 @@
+:root {
+  --font-family: "Plus Jakarta Sans", sans-serif;
+
+  --lime-color: hsl(61, 70%, 52%);
+  --red-color: hsl(4, 69%, 50%);
+
+  --light-color: hsl(0, 0%, 100%);
+  --dark-color: hsl(0, 0%, 0%);
+
+  --slate-100-color: hsl(202, 86%, 94%);
+  --slate-200-color: hsl(203, 87%, 89%);
+  --slate-300-color: hsl(203, 41%, 72%);
+  --slate-400-color: hsl(203, 41%, 62%);
+  --slate-500-color: hsl(200, 26%, 54%);
+  --slate-600-color: hsl(200, 24%, 40%);
+  --slate-700-color: hsl(200, 24%, 30%);
+  --slate-800-color: hsl(200, 24%, 20%);
+  --slate-900-color: hsl(202, 55%, 16%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.mortgage {
+  font-family: var(--font-family);
+  background-color: var(--slate-200-color);
+  color: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
