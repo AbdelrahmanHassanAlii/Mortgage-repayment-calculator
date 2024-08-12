@@ -12,14 +12,7 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="index.css" />
-
     <title>Mortgage repayment calculator</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <!-- <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style> -->
   </head>
   <body>
     <div class="mortgage">
@@ -35,25 +28,38 @@
             </div>
             <div class="middle">
               <form action="">
-                <div class="mortgage-amount">
+                <div class="form-group">
                   <label for="mortgage-amount">Mortgage Amount</label>
-                  <input type="text" id="mortgage-amount" />
+                  <div class="input-container">
+                    <span class="static-text">£</span>
+                    <input type="text" id="mortgage-amount" />
+                  </div>
                 </div>
-                <div class="mortgage-term">
+
+                <div class="form-group">
                   <label for="mortgage-term">Mortgage Term</label>
-                  <input type="text" id="mortgage-term" />
+                  <div class="input-container">
+                    <input type="text" id="mortgage-term" />
+                    <span class="static-text">Years</span>
+                  </div>
                 </div>
-                <div class="interest-rate">
+
+                <div class="form-group">
                   <label for="interest-rate">Interest Rate</label>
-                  <input type="text" id="interest-rate" />
+                  <div class="input-container">
+                    <input type="text" id="interest-rate" />
+                    <span class="static-text">%</span>
+                  </div>
                 </div>
-                <div class="mortgage-type">
-                  <p>Mortgage Type</p>
-                  <label for="repayment">Repayment</label>
+
+                <div class="form-group">
+                  <p class="mortage-type">Mortgage Type</p>
                   <input type="radio" id="repayment" />
-                  <label for="interest-only">Interest Only</label>
+                  <label for="repayment">Repayment</label>
                   <input type="radio" id="interest-only" />
+                  <label for="interest-only">Interest Only</label>
                 </div>
+
               </form>
             </div>
             <div class="bottom">
@@ -82,47 +88,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Mortgage Calculator
-  Clear All
-
-  Mortgage Amount
-
-  Mortgage Term
-
-  Interest Rate
-
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments -->
-
-    <!-- Empty results start -->
-
-    <!-- Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be. -->
-
-    <!-- Empty results end -->
-
-    <!-- Completed results start -->
-
-    <!-- Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term -->
-
-    <!-- Completed results end -->
-
-    <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
   </body>
 </html>
