@@ -16,7 +16,10 @@ const validateMortgageAmount = () => {
     "1px solid var(--slate-400-color)";
   document.querySelector(
     ".mortgage-amount-input-container .static-text"
-  ).style.backgroundColor = "var(--slate-400-color)";
+  ).style.backgroundColor = "var(--slate-200-color)";
+  document.querySelector(
+    ".mortgage-amount-input-container .static-text"
+  ).style.color = "var(--slate-800-color)";
 
   if (value === "") {
     messageContainer.textContent = "This field is required";
@@ -32,6 +35,9 @@ const validateMortgageAmount = () => {
     document.querySelector(
       ".mortgage-amount-input-container .static-text"
     ).style.backgroundColor = "var(--red-color)";
+    document.querySelector(
+      ".mortgage-amount-input-container .static-text"
+    ).style.color = "var(--light-color)";
   }
 
   messageContainer.style.display = "block";
@@ -49,7 +55,10 @@ const validateMortgageTerm = () => {
     "1px solid var(--slate-400-color)";
   document.querySelector(
     ".mortgage-term-input-container .static-text"
-  ).style.backgroundColor = "var(--slate-400-color)";
+  ).style.backgroundColor = "var(--slate-200-color)";
+  document.querySelector(
+    ".mortgage-term-input-container .static-text"
+  ).style.color = "var(--slate-800-color)";
 
   if (value === "") {
     messageContainer.textContent = "This field is required";
@@ -65,6 +74,9 @@ const validateMortgageTerm = () => {
     document.querySelector(
       ".mortgage-term-input-container .static-text"
     ).style.backgroundColor = "var(--red-color)";
+    document.querySelector(
+      ".mortgage-term-input-container .static-text"
+    ).style.color = "var(--light-color)";
   }
 
   messageContainer.style.display = "block";
@@ -82,7 +94,10 @@ const validateInterestRate = () => {
     "1px solid var(--slate-400-color)";
   document.querySelector(
     ".interest-rate-input-container .static-text"
-  ).style.backgroundColor = "var(--slate-400-color)";
+  ).style.backgroundColor = "var(--slate-200-color)";
+  document.querySelector(
+    ".interest-rate-input-container .static-text"
+  ).style.color = "var(--slate-800-color)";
 
   if (value === "") {
     messageContainer.textContent = "This field is required";
@@ -98,6 +113,9 @@ const validateInterestRate = () => {
     document.querySelector(
       ".interest-rate-input-container .static-text"
     ).style.backgroundColor = "var(--red-color)";
+    document.querySelector(
+      ".interest-rate-input-container .static-text"
+    ).style.color = "var(--light-color)";
   }
 
   messageContainer.style.display = "block";
@@ -119,7 +137,7 @@ const validateRadio = () => {
   } else {
     messageContainer.style.display = "none";
   }
-    messageContainer.style.display = "block";
+  messageContainer.style.display = "block";
 };
 
 // Function to check the values and handle error messages
@@ -130,12 +148,26 @@ const validateForm = () => {
   validateRadio();
 };
 
+// Function to calculate the mortgage
+const calculateMortgage = () => {
+  console.log("Calculating...");
+};
+
 // Add event listener to calculate button
 document
   .getElementById("calculate")
   .addEventListener("click", function (event) {
-    event.preventDefault(); 
+    event.preventDefault();
     validateForm();
+    // Check if any validation errors exist
+    const errorMessages = document.querySelectorAll(".error-message");
+    const hasErrors = Array.from(errorMessages).some(
+      (message) => message.textContent !== ""
+    );
+
+    if (!hasErrors) {
+      calculateMortgage();
+    }
   });
 
 // Function to reset error messages and styles
@@ -150,6 +182,8 @@ const resetErrorMessages = () => {
   inputContainers.forEach((container) => {
     container.style.border = "1px solid var(--slate-400-color)";
     container.querySelector(".static-text").style.backgroundColor =
-      "var(--slate-400-color)";
+      "var(--slate-200-color)";
+    container.querySelector(".static-text").style.color =
+      "var(--slate-800-color)";
   });
 };
