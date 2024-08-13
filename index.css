@@ -176,6 +176,28 @@ p {
   caret-color: var(--slate-400-color);
 }
 
+.left-top .middle form .form-group .input-container:focus-within {
+  border-color: var(--lime-color);
+}
+
+.left-top .middle form .form-group .input-container input:focus + .static-text,
+.left-top
+  .middle
+  form
+  .form-group
+  .input-container
+  input:focus-within
+  + .static-text,
+.left-top
+  .middle
+  form
+  .form-group
+  .input-container
+  input:focus
+  + .static-text-1 {
+  background-color: var(--lime-color) !important;
+}
+
 .left-top .middle form .form-group .input-container .static-text {
   font-size: 1.2rem;
   font-weight: bold;
