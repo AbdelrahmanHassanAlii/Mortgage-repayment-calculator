@@ -186,6 +186,43 @@ const calculateMortgage = () => {
   middle.innerHTML = `Your result are shown below based on the information you provided. To adjust the result, edit the form and click "Calculate repayment" again.`;
   middle.style.color = "var(--slate-300-color)";
   middle.style.fontSize = "0.9rem";
+
+  // add card in bottom section
+  const card = document.createElement("div");
+  card.classList.add("result-card");
+
+  //top section of card
+  const resultTop = document.createElement("div");
+  resultTop.classList.add("result-card-top");
+
+  const resultTopText = document.createElement("p");
+  resultTopText.classList.add("result-card-top-text");
+  resultTopText.textContent = "Your monthly repayment";
+
+  resultTop.appendChild(resultTopText);
+
+  const resultTopValue = document.createElement("p");
+  resultTopValue.classList.add("result-card-top-value");
+  resultTopValue.textContent = `£${monthlyRepayment.toFixed(2)}`;
+    resultTop.appendChild(resultTopValue);
+  card.appendChild(resultTop);
+
+  //bottom section of card
+  const resultBottom = document.createElement("div");
+  resultBottom.classList.add("result-card-bottom");
+
+  const resultBottomText = document.createElement("p");
+  resultBottomText.classList.add("result-card-bottom-text");
+  resultBottomText.textContent = "Total you'll repay over the term";
+  resultBottom.appendChild(resultBottomText);
+
+  const resultBottomValue = document.createElement("p");
+  resultBottomValue.classList.add("result-card-bottom-value");
+  resultBottomValue.textContent = `£${totalRepayment.toFixed(2)}`;
+  resultBottom.appendChild(resultBottomValue);
+  card.appendChild(resultBottom);
+
+  bottom.appendChild(card);
 };
 
 // Function to calculate the monthly repayment
