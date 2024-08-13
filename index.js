@@ -28,10 +28,10 @@ const validateMortgageAmount = () => {
 
   if (messageContainer.textContent !== "") {
     document.querySelector(".mortgage-amount-input-container").style.border =
-      "1px solid red";
+      "1px solid var(--red-color)";
     document.querySelector(
       ".mortgage-amount-input-container .static-text"
-    ).style.backgroundColor = "red";
+    ).style.backgroundColor = "var(--red-color)";
   }
 
   messageContainer.style.display = "block";
@@ -61,10 +61,10 @@ const validateMortgageTerm = () => {
 
   if (messageContainer.textContent !== "") {
     document.querySelector(".mortgage-term-input-container").style.border =
-      "1px solid red";
+      "1px solid var(--red-color)";
     document.querySelector(
       ".mortgage-term-input-container .static-text"
-    ).style.backgroundColor = "red";
+    ).style.backgroundColor = "var(--red-color)";
   }
 
   messageContainer.style.display = "block";
@@ -94,13 +94,32 @@ const validateInterestRate = () => {
 
   if (messageContainer.textContent !== "") {
     document.querySelector(".interest-rate-input-container").style.border =
-      "1px solid red";
+      "1px solid var(--red-color)";
     document.querySelector(
       ".interest-rate-input-container .static-text"
-    ).style.backgroundColor = "red";
+    ).style.backgroundColor = "var(--red-color)";
   }
 
   messageContainer.style.display = "block";
+};
+
+// Function to check if a radio option is selected and handle error messages
+const validateRadio = () => {
+  const checkedRadio = document.querySelector(
+    'input[name="mortgage-type"]:checked'
+  );
+
+  const messageContainer = document.querySelector(".options-error-message");
+
+  messageContainer.textContent = "";
+
+  if (!checkedRadio) {
+    messageContainer.textContent = "Please select a mortgage type.";
+    messageContainer.style.display = "block";
+  } else {
+    messageContainer.style.display = "none";
+  }
+    messageContainer.style.display = "block";
 };
 
 // Function to check the values and handle error messages
@@ -108,13 +127,14 @@ const validateForm = () => {
   validateMortgageAmount();
   validateMortgageTerm();
   validateInterestRate();
+  validateRadio();
 };
 
 // Add event listener to calculate button
 document
   .getElementById("calculate")
   .addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the form from submitting
+    event.preventDefault(); 
     validateForm();
   });
 
