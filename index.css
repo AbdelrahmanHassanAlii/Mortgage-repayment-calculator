@@ -141,14 +141,10 @@ button {
   gap: 10px;
 }
 
-.left-top .middle form .middle-of-form .form-group {
-  /* width: 200px; */
-}
-
 .left-top .middle form .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px 0;
 }
 
@@ -218,6 +214,14 @@ button {
 
 .static-text-1 {
   height: 37px !important;
+}
+
+.left-top .middle form .error-message {
+  font-size: 0.8rem;
+  color: var(--red-color);
+  margin: 0;
+  margin-top: 5px;
+  display: none;
 }
 
 .left-top .middle form .select-group {

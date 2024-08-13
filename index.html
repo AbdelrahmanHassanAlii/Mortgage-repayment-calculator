@@ -27,25 +27,46 @@
                   <label for="mortgage-amount">Mortgage Amount</label>
                   <div class="input-container">
                     <span class="static-text static-text-1">£</span>
-                    <input type="text" id="mortgage-amount" name="mortgage-amount"/>
+                    <input
+                      type="text"
+                      id="mortgage-amount"
+                      name="mortgage-amount"
+                    />
                   </div>
+                  <p class="error-message mortgage-amount-error-message">
+                    error message
+                  </p>
                 </div>
 
                 <div class="middle-of-form">
                   <div class="form-group">
                     <label for="mortgage-term">Mortgage Term</label>
                     <div class="input-container">
-                      <input type="text" id="mortgage-term" name="mortgage-term"/>
+                      <input
+                        type="text"
+                        id="mortgage-term"
+                        name="mortgage-term"
+                      />
                       <span class="static-text">Years</span>
                     </div>
+                    <p class="error-message mortgage-term-error-message">
+                      error message
+                    </p>
                   </div>
 
                   <div class="form-group">
                     <label for="interest-rate">Interest Rate</label>
                     <div class="input-container">
-                      <input type="text" id="interest-rate" name="interest-rate"/>
+                      <input
+                        type="text"
+                        id="interest-rate"
+                        name="interest-rate"
+                      />
                       <span class="static-text">%</span>
                     </div>
+                    <p class="error-message interest-rate-error-message">
+                      error message
+                    </p>
                   </div>
                 </div>
 
@@ -53,7 +74,12 @@
                   <p class="mortgage-type">Mortgage Type</p>
 
                   <div class="option-1">
-                    <input type="radio" name="mortgage-type" id="repayment" value="Repayment" />
+                    <input
+                      type="radio"
+                      name="mortgage-type"
+                      id="repayment"
+                      value="Repayment"
+                    />
                     <label for="repayment">Repayment</label>
                   </div>
 
@@ -66,6 +92,9 @@
                     />
                     <label for="interest-only">Interest Only</label>
                   </div>
+                  <p class="error-message options-error-message">
+                    error message
+                  </p>
                 </div>
               </form>
             </div>
