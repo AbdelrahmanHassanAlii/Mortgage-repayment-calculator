@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -12,15 +10,12 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="index.css" />
-    <title>Mortgage repayment calculator</title>
+    <title>Mortgage Repayment Calculator</title>
   </head>
   <body>
     <div class="mortgage">
       <div class="container">
-        <!-- <div class="title">
-          <h1>Mortgage repayment calculator</h1>
-        </div> -->
-        <div class="mortage-calculator">
+        <div class="mortgage-calculator">
           <div class="left-top">
             <div class="top">
               <p class="title">Mortgage Calculator</p>
@@ -31,39 +26,49 @@
                 <div class="form-group">
                   <label for="mortgage-amount">Mortgage Amount</label>
                   <div class="input-container">
-                    <span class="static-text">£</span>
+                    <span class="static-text static-text-1">£</span>
                     <input type="text" id="mortgage-amount" />
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="mortgage-term">Mortgage Term</label>
-                  <div class="input-container">
-                    <input type="text" id="mortgage-term" />
-                    <span class="static-text">Years</span>
+                <div class="middle-of-form">
+                  <div class="form-group">
+                    <label for="mortgage-term">Mortgage Term</label>
+                    <div class="input-container">
+                      <input type="text" id="mortgage-term" />
+                      <span class="static-text">Years</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="interest-rate">Interest Rate</label>
+                    <div class="input-container">
+                      <input type="text" id="interest-rate" />
+                      <span class="static-text">%</span>
+                    </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="interest-rate">Interest Rate</label>
-                  <div class="input-container">
-                    <input type="text" id="interest-rate" />
-                    <span class="static-text">%</span>
+                <div class="select-group">
+                  <p class="mortgage-type">Mortgage Type</p>
+
+                  <div class="option-1">
+                    <input type="radio" name="mortgage-type" id="repayment" />
+                    <label for="repayment">Repayment</label>
+                  </div>
+
+                  <div class="option-2">
+                    <input type="radio" id="interest-only" />
+                    <label for="interest-only">Interest Only</label>
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <p class="mortage-type">Mortgage Type</p>
-                  <input type="radio" id="repayment" />
-                  <label for="repayment">Repayment</label>
-                  <input type="radio" id="interest-only" />
-                  <label for="interest-only">Interest Only</label>
-                </div>
-
               </form>
             </div>
             <div class="bottom">
-              <img src="./assets//images/icon-calculator.svg" alt="" />
+              <img
+                src="./assets/images/icon-calculator.svg"
+                alt="Calculator icon"
+              />
               <p>Calculate Repayments</p>
             </div>
           </div>
@@ -71,7 +76,10 @@
             <div class="top"></div>
             <div class="middle">
               <div class="image">
-                <img src="./assets/images/illustration-empty.svg" alt="image" />
+                <img
+                  src="./assets/images/illustration-empty.svg"
+                  alt="Illustration"
+                />
               </div>
               <div class="middle">
                 <p class="title">Results shown here</p>

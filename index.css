@@ -2,6 +2,7 @@
   --font-family: "Plus Jakarta Sans", sans-serif;
 
   --lime-color: hsl(61, 70%, 52%);
+  --lime-200-color: hsl(61, 70%, 72%);
   --red-color: hsl(4, 69%, 50%);
 
   --light-color: hsl(0, 0%, 100%);
@@ -27,6 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--slate-200-color);
+  box-sizing: border-box;
 }
 
 h1,
@@ -43,9 +45,6 @@ p {
 .mortgage {
   background-color: var(--slate-200-color);
   color: var(--light-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
@@ -54,6 +53,9 @@ p {
 @media screen and (min-width: 768px) {
   .mortgage {
     width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -63,7 +65,7 @@ p {
   box-sizing: border-box;
 }
 
-.mortage-calculator {
+.mortgage-calculator {
   display: flex;
   flex-direction: column;
   background-color: var(--light-color);
@@ -73,10 +75,11 @@ p {
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  margin: 50px 20px 50px;
 }
 
 @media screen and (min-width: 768px) {
-  .mortage-calculator {
+  .mortgage-calculator {
     flex-direction: row;
     height: 70vh;
   }
@@ -91,17 +94,12 @@ p {
   justify-content: space-between;
 }
 
-.left-top {
-  /* background-color: red; */
-}
-
 .left-top .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  flex-shrink: 0; /* Ensure it doesn't shrink */
-  margin-bottom: 10px; /* Optional spacing */
+  flex-shrink: 0;
+  margin-bottom: 10px;
 }
 
 .left-top .top .title {
@@ -117,13 +115,115 @@ p {
   border-bottom: 1px solid var(--slate-400-color);
 }
 
+.left-top .top .clear:hover {
+  color: var(--slate-600-color);
+  border-bottom-color: var(--slate-600-color);
+}
+
 .left-top .middle {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;  */
+  justify-content: space-between;
   margin-bottom: 10px;
-  /* background-color: blanchedalmond; */
+}
+
+.left-top .middle form .middle-of-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.left-top .middle form .middle-of-form .form-group {
+  /* width: 200px; */
+}
+
+.left-top .middle form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+.left-top .middle form .form-group label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: var(--slate-400-color);
+}
+
+.left-top .middle form .form-group .input-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--slate-400-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.left-top .middle form .form-group .input-container:hover {
+  border-color: var(--slate-600-color);
+}
+
+.left-top .middle form .form-group .input-container input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  /* font-weight: bold; */
+  color: var(--slate-700-color);
+  padding: 5px;
+  width: 100%;
+  caret-color: var(--slate-400-color);
+}
+
+.left-top .middle form .form-group .input-container .static-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--slate-800-color);
+  background-color: var(--slate-200-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.static-text-1 {
+  height: 37px !important;
+}
+
+.left-top .middle form .select-group {
+  margin-top: 10px;
+}
+
+.left-top .middle form .select-group .mortgage-type {
+  /* font-weight: bold; */
+  font-size: 0.9rem;
+  color: var(--slate-400-color);
+  margin-bottom: 5px;
+}
+
+.left-top .middle form .select-group .option-1,
+.left-top .middle form .select-group .option-2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: 1px solid var(--slate-400-color);
+  padding: 10px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-weight: bold;
+  color: var(--slate-700-color);
+}
+
+.left-top .middle form .select-group .option-1:hover,
+.left-top .middle form .select-group .option-2:hover {
+  border-color: var(--lime-color);
 }
 
 .left-top .bottom {
@@ -138,7 +238,11 @@ p {
   width: fit-content;
   border-radius: 50px;
   cursor: pointer;
-  flex-shrink: 0; /* Ensure it doesn't shrink */
+  flex-shrink: 0;
+}
+
+.left-top .bottom:hover {
+  background-color: var(--lime-200-color);
 }
 
 .right-bottom {
