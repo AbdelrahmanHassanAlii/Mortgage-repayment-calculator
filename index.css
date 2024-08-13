@@ -42,6 +42,13 @@ p {
   padding: 0;
 }
 
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .mortgage {
   background-color: var(--slate-200-color);
   color: var(--light-color);
