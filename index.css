@@ -286,6 +286,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -314,6 +315,17 @@ button {
   font-weight: lighter;
   color: var(--slate-300-color);
   max-width: 400px;
+}
+
+.right-bottom .top {
+  color: var(--light-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  /* text-align: center; */
+}
+
+.result-middle-text {
+  line-height: 1.5;
 }
 
 .result-card {

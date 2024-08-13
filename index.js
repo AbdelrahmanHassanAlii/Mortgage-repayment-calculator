@@ -2,6 +2,7 @@
 document.getElementById("clear").addEventListener("click", function () {
   document.getElementById("mortgage-form").reset();
   resetErrorMessages();
+  clearResults();
 });
 
 // Function to validate the mortgage amount
@@ -137,7 +138,6 @@ const validateRadio = () => {
   } else {
     messageContainer.style.display = "none";
   }
-  messageContainer.style.display = "block";
 };
 
 // Function to check the values and handle error messages
@@ -150,7 +150,7 @@ const validateForm = () => {
 
 // Function to calculate the mortgage
 const calculateMortgage = () => {
-  //get the input values
+  // Get the input values
   const mortgageAmount = Number(
     document.getElementById("mortgage-amount").value
   );
@@ -160,69 +160,80 @@ const calculateMortgage = () => {
     'input[name="mortgage-type"]:checked'
   ).value;
 
-  //calculate the monthly repayment
+  // Calculate the monthly repayment
   const monthlyRepayment = calculateMonthlyRepayment(
     mortgageAmount,
     mortgageTerm,
     interestRate
   );
 
-  //calculate the total repayment over the term
+  // Calculate the total repayment over the term
   const totalRepayment = calculateTotalRepayment(
     monthlyRepayment,
     mortgageTerm,
     mortgageType
   );
 
-  //display the results
+  // Display the results
   const top = document.querySelector(".right-bottom .top");
   const middle = document.querySelector(".right-bottom .middle");
   const bottom = document.querySelector(".right-bottom .bottom");
 
-  // add paragraph in top section
-  top.innerHTML = "Your results";
-
-  // add paragraph in middle section
-  middle.innerHTML = `Your result are shown below based on the information you provided. To adjust the result, edit the form and click "Calculate repayment" again.`;
+  // Update the results section
+  top.innerHTML = "<p>Your results</p>";
+  middle.innerHTML =
+    "<p class='result-middle-text'>Your results are shown below based on the information you provided. To adjust the result, edit the form and click 'Calculate repayment' again.</p>";
   middle.style.color = "var(--slate-300-color)";
   middle.style.fontSize = "0.9rem";
 
-  // add card in bottom section
-  const card = document.createElement("div");
-  card.classList.add("result-card");
+  // Check if a result card already exists
+  let card = document.querySelector(".result-card");
 
-  //top section of card
-  const resultTop = document.createElement("div");
-  resultTop.classList.add("result-card-top");
+  if (!card) {
+    // Create a new card if it doesn't exist
+    card = document.createElement("div");
+    card.classList.add("result-card");
 
-  const resultTopText = document.createElement("p");
-  resultTopText.classList.add("result-card-top-text");
-  resultTopText.textContent = "Your monthly repayment";
+    // Top section of card
+    const resultTop = document.createElement("div");
+    resultTop.classList.add("result-card-top");
 
-  resultTop.appendChild(resultTopText);
+    const resultTopText = document.createElement("p");
+    resultTopText.classList.add("result-card-top-text");
+    resultTopText.textContent = "Your monthly repayment";
 
-  const resultTopValue = document.createElement("p");
-  resultTopValue.classList.add("result-card-top-value");
-  resultTopValue.textContent = `£${monthlyRepayment.toFixed(2)}`;
+    const resultTopValue = document.createElement("p");
+    resultTopValue.classList.add("result-card-top-value");
+
+    resultTop.appendChild(resultTopText);
     resultTop.appendChild(resultTopValue);
-  card.appendChild(resultTop);
+    card.appendChild(resultTop);
 
-  //bottom section of card
-  const resultBottom = document.createElement("div");
-  resultBottom.classList.add("result-card-bottom");
+    // Bottom section of card
+    const resultBottom = document.createElement("div");
+    resultBottom.classList.add("result-card-bottom");
 
-  const resultBottomText = document.createElement("p");
-  resultBottomText.classList.add("result-card-bottom-text");
-  resultBottomText.textContent = "Total you'll repay over the term";
-  resultBottom.appendChild(resultBottomText);
+    const resultBottomText = document.createElement("p");
+    resultBottomText.classList.add("result-card-bottom-text");
+    resultBottomText.textContent = "Total you'll repay over the term";
 
-  const resultBottomValue = document.createElement("p");
-  resultBottomValue.classList.add("result-card-bottom-value");
-  resultBottomValue.textContent = `£${totalRepayment.toFixed(2)}`;
-  resultBottom.appendChild(resultBottomValue);
-  card.appendChild(resultBottom);
+    const resultBottomValue = document.createElement("p");
+    resultBottomValue.classList.add("result-card-bottom-value");
 
-  bottom.appendChild(card);
+    resultBottom.appendChild(resultBottomText);
+    resultBottom.appendChild(resultBottomValue);
+    card.appendChild(resultBottom);
+
+    bottom.appendChild(card);
+  }
+
+  // Update the card values
+  card.querySelector(
+    ".result-card-top-value"
+  ).textContent = `£${monthlyRepayment.toFixed(2)}`;
+  card.querySelector(
+    ".result-card-bottom-value"
+  ).textContent = `£${totalRepayment.toFixed(2)}`;
 };
 
 // Function to calculate the monthly repayment
@@ -246,8 +257,8 @@ const calculateTotalRepayment = (
   mortgageTerm,
   mortgageType
 ) => {
-  if (mortgageType === "repayment") {
-    const totalRepayment = monthlyRepayment * mortgageTerm;
+  if (mortgageType === "Repayment") {
+    const totalRepayment = monthlyRepayment * mortgageTerm * 12;
     return totalRepayment;
   } else {
     const totalRepayment = monthlyRepayment * (mortgageTerm * 12);
@@ -288,4 +299,29 @@ const resetErrorMessages = () => {
     container.querySelector(".static-text").style.color =
       "var(--slate-800-color)";
   });
+};
+
+// Function to clear the results
+const clearResults = () => {
+  const top = document.querySelector(".right-bottom .top");
+  const middle = document.querySelector(".right-bottom .middle");
+  const bottom = document.querySelector(".right-bottom .bottom");
+
+  top.innerHTML = "";
+  middle.innerHTML = `              <div class="image">
+                <img
+                  src="./assets/images/illustration-empty.svg"
+                  alt="Illustration"
+                />
+              </div>
+              <div class="middle">
+                <p class="title">Results shown here</p>
+              </div>
+              <div class="bottom">
+                <p class="paragraph">
+                  Complete the form and click “calculate repayments” to see what
+                  your monthly repayments would be.
+                </p>
+              </div>`;
+  bottom.innerHTML = "";
 };
