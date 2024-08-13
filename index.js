@@ -1,5 +1,7 @@
-
-
+//function to clear the form
+document.getElementById("clear").addEventListener("click", function () {
+  document.getElementById("mortgage-form").reset();
+});
 
 // Add event listener to calculate button
 document
