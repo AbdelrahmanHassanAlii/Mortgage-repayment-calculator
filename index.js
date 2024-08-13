@@ -150,7 +150,72 @@ const validateForm = () => {
 
 // Function to calculate the mortgage
 const calculateMortgage = () => {
-  console.log("Calculating...");
+  //get the input values
+  const mortgageAmount = Number(
+    document.getElementById("mortgage-amount").value
+  );
+  const mortgageTerm = Number(document.getElementById("mortgage-term").value);
+  const interestRate = Number(document.getElementById("interest-rate").value);
+  const mortgageType = document.querySelector(
+    'input[name="mortgage-type"]:checked'
+  ).value;
+
+  //calculate the monthly repayment
+  const monthlyRepayment = calculateMonthlyRepayment(
+    mortgageAmount,
+    mortgageTerm,
+    interestRate
+  );
+
+  //calculate the total repayment over the term
+  const totalRepayment = calculateTotalRepayment(
+    monthlyRepayment,
+    mortgageTerm,
+    mortgageType
+  );
+
+  //display the results
+  const top = document.querySelector(".right-bottom .top");
+  const middle = document.querySelector(".right-bottom .middle");
+  const bottom = document.querySelector(".right-bottom .bottom");
+
+  // add paragraph in top section
+  top.innerHTML = "Your results";
+
+  // add paragraph in middle section
+  middle.innerHTML = `Your result are shown below based on the information you provided. To adjust the result, edit the form and click "Calculate repayment" again.`;
+  middle.style.color = "var(--slate-300-color)";
+  middle.style.fontSize = "0.9rem";
+};
+
+// Function to calculate the monthly repayment
+const calculateMonthlyRepayment = (
+  mortgageAmount,
+  mortgageTerm,
+  interestRate
+) => {
+  const monthlyInterestRate = interestRate / 100 / 12;
+  const numPayments = mortgageTerm * 12;
+  const numerator =
+    monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numPayments);
+  const denominator = Math.pow(1 + monthlyInterestRate, numPayments) - 1;
+  const monthlyRepayment = mortgageAmount * (numerator / denominator);
+  return monthlyRepayment;
+};
+
+// Function to calculate the total repayment
+const calculateTotalRepayment = (
+  monthlyRepayment,
+  mortgageTerm,
+  mortgageType
+) => {
+  if (mortgageType === "repayment") {
+    const totalRepayment = monthlyRepayment * mortgageTerm;
+    return totalRepayment;
+  } else {
+    const totalRepayment = monthlyRepayment * (mortgageTerm * 12);
+    return totalRepayment;
+  }
 };
 
 // Add event listener to calculate button

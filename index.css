@@ -283,6 +283,9 @@ button {
   color: var(--light-color);
   border-bottom-left-radius: 70px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 768px) {
