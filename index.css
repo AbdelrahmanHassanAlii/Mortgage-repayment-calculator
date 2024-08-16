@@ -212,6 +212,10 @@ button {
   padding: 0 10px;
 }
 
+.input-container:has(input:focus) .static-text {
+  background-color: var(--lime-color) !important;
+}
+
 .static-text-1 {
   height: 37px !important;
 }
@@ -257,6 +261,21 @@ button {
 .left-top .middle form .select-group .option-1:hover,
 .left-top .middle form .select-group .option-2:hover {
   border-color: var(--lime-color);
+}
+
+.option-1:has(input:checked),
+.option-2:has(input:checked) {
+  background-color: var(--lime-200-color);
+}
+
+.option-1:has(input:checked) input {
+  color: var(--lime-color);
+}
+
+.option-1:has(input:checked),
+.option-2:has(input:checked) {
+  background-color: var(--lime-200-color);
+  border-color: var(--lime-color) !important;
 }
 
 .left-top .bottom {
