@@ -408,3 +408,16 @@ button {
   color: var(--light-color);
   margin: 10px 0;
 }
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: var(--slate-500-color);
+}
+
+.attribution a {
+  color: var(--slate-700-color);
+}
